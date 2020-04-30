@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>浮动去空格</title>
+    <style>
+        button { margin: 0; }
+        p { clear: both; }
+    </style>
+</head>
+
+<body>
+<!--只需要看 html  4 个按钮部分
+这里将换行去掉，使用空格来代替，增加 float 后
+会发现：按钮靠在一起，但是按钮后面有好几个空格，且 P 标签与上排的按钮隔的那么远
+-->
+<button>按钮1</button>&nbsp;<button>按钮2</button>&nbsp;<button>按钮3</button>&nbsp;<button>按钮4</button>&nbsp;
+<p><input type="button" id="trigger" value="点击按钮浮动"></p>
+<script>
+    var trigger = document.getElementById("trigger"),
+        buttons = document.getElementsByTagName("button");
+
+    var length = buttons.length;
+
+    if (trigger && length > 0) {
+        trigger.onclick = function() {
+            for (var index = 0; index < length; index += 1) {
+                buttons[index].style["cssFloat" in trigger.style? "cssFloat": "styleFloat"] = "left";
+            }
+        };
+    }
+</script>
+</body>
+</html>
