@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html {
+            background: #DDF3F7;
+        }
+
+        .mib_x {
+            background: white;
+            /*使用浮动之后，高度塌陷了，要让外框产生 BFC 包裹住内容*/
+            overflow: hidden;
+        }
+
+        .mib_list {
+            padding: 15px;
+        }
+
+        .mib_head {
+            width: 56px;
+            float: left;
+        }
+
+        /*右侧浮动+固定宽度*/
+        .mib_feed_fixed {
+            float: right;
+            width: 484px;
+        }
+
+        /*文字跟随自适应*/
+        .mib_feed_flow {
+            margin-left: 76px;
+        }
+
+        .mib_sms {
+            font-size: 14px;
+            line-height: 22px;
+            margin: 0;
+            padding-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<p>原始实现：左右都浮动，右侧固定宽度，这个有很多的缺点</p>
+<div class="mib_x">
+    <div class="mib_list">
+        <a class="mib_head">
+            <img src="../../../image/2.jpg">
+        </a>
+        <div class="mib_feed_fixed">
+            <p class="mib_sms">
+                <a>若瑄VIVIAN：</a> 一個人的晚餐！茶泡飯！飯、飯、飯… 今日不減肥，先把病治好再說！
+                我認真吃完這，燒就會退了吧？！ 開動啦~~~~~~~~~~~~~~~~~~
+            </p>
+            <div>
+                <img src="http://img.mukewang.com/53e2e9b10001948000890120.jpg">
+            </div>
+        </div>
+    </div>
+</div>
+<p>文字环绕实现：</p>
+<div class="mib_x">
+    <div class="mib_list">
+        <a class="mib_head">
+            <img src="../../../image/2.jpg">
+        </a>
+        <div class="mib_feed_flow">
+            <p class="mib_sms">
+                <a>若瑄VIVIAN：</a> 一個人的晚餐！茶泡飯！飯、飯、飯… 今日不減肥，先把病治好再說！
+                我認真吃完這，燒就會退了吧？！ 開動啦~~~~~~~~~~~~~~~~~~
+            </p>
+            <div>
+                <img src="http://img.mukewang.com/53e2e9b10001948000890120.jpg">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

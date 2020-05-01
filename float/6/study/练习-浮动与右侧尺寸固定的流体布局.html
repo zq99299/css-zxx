@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html {
+            background: #DDF3F7;
+        }
+
+        .mib_x {
+            background: white;
+        }
+
+        /*可拖动*/
+        .mib_resize {
+            resize: both;
+            overflow: auto;
+        }
+
+        .mib_list {
+            padding: 15px;
+            overflow: hidden; /*使用浮动之后，高度塌陷了，要让外框产生 BFC 包裹住内容*/
+            resize: none;
+        }
+
+        /*文字跟随，dom 元素表现不一致实现*/
+        .mib_head_r {
+            width: 56px;
+            float: right;
+        }
+
+        .mib_feed_flow {
+            margin-right: 76px;
+        }
+
+        /*dom 元素表现一致实现*/
+        /*额外一层容器用来占满整个宽度的自适应*/
+        .mib_full_float {
+            width: 100%;
+            float: left;
+        }
+
+        .mib_head_l {
+            width: 56px;
+            float: left;
+            margin-left: -56px;
+        }
+
+        .mib_sms {
+            font-size: 14px;
+            line-height: 22px;
+            margin: 0;
+            padding-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<p>原始实现：头像右浮动，内容跟随，但是他们的位置和 html 中表现不一致</p>
+<div class="mib_x mib_resize">
+    <div class="mib_list">
+        <a class="mib_head_r">
+            <img src="../../../image/2.jpg">
+        </a>
+        <div class="mib_feed_flow">
+            <p class="mib_sms">
+                <a>若瑄VIVIAN：</a> 一個人的晚餐！茶泡飯！飯、飯、飯… 今日不減肥，先把病治好再說！
+                我認真吃完這，燒就會退了吧？！ 開動啦~~~~~~~~~~~~~~~~~~
+            </p>
+            <div>
+                <img src="http://img.mukewang.com/53e2e9b10001948000890120.jpg">
+            </div>
+        </div>
+    </div>
+</div>
+<p>都左浮动，产生浮动跟随：内容左浮动，并占满整个空间；头像左浮动，负值出现</p>
+<div class="mib_x mib_resize">
+    <div class="mib_list">
+        <div class="mib_full_float">
+            <div class="mib_feed_flow">
+                <p class="mib_sms">
+                    <a>若瑄VIVIAN：</a> 一個人的晚餐！茶泡飯！飯、飯、飯… 今日不減肥，先把病治好再說！
+                    我認真吃完這，燒就會退了吧？！ 開動啦~~~~~~~~~~~~~~~~~~
+                </p>
+                <div>
+                    <img src="http://img.mukewang.com/53e2e9b10001948000890120.jpg">
+                </div>
+            </div>
+        </div>
+        <a class="mib_head_l">
+            <img src="../../../image/2.jpg">
+        </a>
+    </div>
+</div>
+</body>
+</html>
